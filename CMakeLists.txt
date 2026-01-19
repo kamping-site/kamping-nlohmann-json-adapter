@@ -21,7 +21,6 @@ FetchContent_Declare(
   SYSTEM)
 
 add_library(kamping-nlohmann-json-adapter INTERFACE)
-target_sources(kamping-nlohmann-json_adapter)
 
 target_sources(
   kamping-nlohmann-json-adapter
