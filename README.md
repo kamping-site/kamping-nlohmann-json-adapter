@@ -1,0 +1,1 @@
+# kamping-nlohmann-json-adaptor
