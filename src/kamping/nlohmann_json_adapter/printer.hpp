@@ -7,10 +7,10 @@ namespace kamping::measurements {
 template <typename Duration = double>
 class NLohmannJsonPrinter {
 private:
-  nlohmann::json j;
+  nlohmann::ordered_json j;
 
 public:
-  [[nodiscard]] auto json() const -> nlohmann::json const& { return j; }
+  [[nodiscard]] auto json() const -> nlohmann::ordered_json const& { return j; }
 
   void print(kamping::measurements::AggregatedTreeNode<Duration> const& node) {
     j = {};
@@ -18,7 +18,7 @@ public:
   }
 
   void print_impl(kamping::measurements::AggregatedTreeNode<Duration> const& node,
-                  nlohmann::json& j) {
+                  nlohmann::ordered_json& j) {
     auto& j_local = j[node.name()];
     for (auto const& [operation, aggregated_data] : node.aggregated_data()) {
       auto& op_data = j_local[kamping::measurements::get_string(operation)];
