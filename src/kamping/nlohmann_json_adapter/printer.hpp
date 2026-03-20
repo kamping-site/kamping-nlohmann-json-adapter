@@ -18,8 +18,8 @@ public:
   }
 
   void print_impl(kamping::measurements::AggregatedTreeNode<Duration> const& node,
-                  nlohmann::ordered_json& j) {
-    auto& j_local = j[node.name()];
+                  nlohmann::ordered_json& json_data) {
+    auto& j_local = json_data[node.name()];
     for (auto const& [operation, aggregated_data] : node.aggregated_data()) {
       auto& op_data = j_local[kamping::measurements::get_string(operation)];
       // op_data = aggregated_data;
